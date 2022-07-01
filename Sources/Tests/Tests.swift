@@ -1,6 +1,8 @@
 import SwiftUI
 
-public protocol Compositional: View where Body: Compositional { }
+public protocol Compositional {
+    
+}
 
 public struct Section: Compositional {
     public init<C: Compositional>(@CompositionalElementBuilder _ content: () -> C) { }
