@@ -1,13 +1,16 @@
 import SwiftUI
 
-public protocol Compositional: View where Body: Compositional { }
+public protocol Compositional {
+    associatedtype Body: Compositional
+    var body: Body { get }
+}
 
-public struct Section: Compositional {
+public struct Section: Compositional, View {
     public init<C: Compositional>(@CompositionalElementBuilder _ content: () -> C) { }
     public var body: Never { fatalError() }
 }
 
-public struct ForEach: Compositional {
+public struct ForEach: Compositional, View {
     public init<C: View>(@ViewBuilder _ content: () -> C) { }
     public var body: Never { fatalError() }
 }
