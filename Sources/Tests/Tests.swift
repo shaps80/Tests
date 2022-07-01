@@ -10,7 +10,7 @@ public struct Section<C: Compositional & View>: Compositional {
     public var body: some Compositional & View { content }
 }
 
-extension Section: View where C: View { }
+//extension Section: View where C: View { }
 
 public struct ForEach<C: View>: Compositional {
     let content: C
@@ -20,7 +20,7 @@ public struct ForEach<C: View>: Compositional {
     public var body: some View { content }
 }
 
-extension ForEach: View where C: View { }
+//extension ForEach: View where C: View { }
 
 public struct CompositionalList<C: Compositional & View>: View {
     let content: C
